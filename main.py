@@ -1,5 +1,8 @@
 import random
 
+import os
+clear = lambda: os.system('clear')
+
 def deal_cards(deck, num_players):
     hands = [[] for _ in range(num_players)]
     for i in range(7):
@@ -48,6 +51,7 @@ def go_fish():
         print('Player', current_player+1, "'s turn")
         print_hand(hands[current_player])
         chosen_rank = input('Choose a rank to ask for: ')
+        clear()
         while chosen_rank not in ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']:
             chosen_rank = input('Invalid rank. Choose a rank to ask for: ')
         chosen_rank_cards = [card for card in hands[(current_player+1)%num_players] if card.startswith(chosen_rank)]
